@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: jobrunnrdemo
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none # Set to 'none' so Hibernate does not conflict with schema.sql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:sql/schema.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  port: 8081
+
+jobrunr:
+  background-job-server:
+    enabled: true
+  dashboard:
+    enabled: true
+  database:
+    type: mem
