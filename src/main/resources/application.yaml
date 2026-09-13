@@ -36,4 +36,9 @@ jobrunr:
   dashboard:
     enabled: true
   database:
-    type: mem
+    #    type: mem
+    skip-create: false
+  #    datasource: dataSource
+  #    table-prefix: "demo."
+  miscellaneous:
+    allow-anonymous-data-usage: false
